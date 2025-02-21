@@ -1,93 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amir Roofing - High-quality roofing services in North York, ON">
-    <title>Amir Roofing</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #003366;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-        .contact-info, .business-hours {
-            background-color: #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info h2, .business-hours h2 {
-            margin-top: 0;
-        }
-        .cta-button {
-            background-color: #28a745;
-            color: #fff;
-            padding: 15px 25px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .cta-button:hover {
-            background-color: #218838;
-        }
-        footer {
-            background-color: #003366;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-<header>
-    <h1>Amir Roofing</h1>
-    <p>Quality Roofing Services in North York, ON</p>
-</header>
+const RoofingWebsite = () => {
+  return (
+    <div className="p-8 bg-gray-100 min-h-screen">
+      <img src="/Black White Minimalist Modern Aesthetic Initials Font Logo.png" alt="Amir Roofing Logo" className="w-48 mb-8 mx-auto" />
+      <h1 className="text-4xl font-bold mb-6 text-center">Amir Roofing - Expert Roofer</h1>
 
-<div class="container">
-    <!-- Contact Information Section -->
-    <div class="contact-info">
-        <h2>Contact Us</h2>
-        <p><strong>Address:</strong> 45 Grenoble Drive, North York, ON, M3C 1C5</p>
-        <p><strong>Phone:</strong> <a href="tel:+16477189594">647-718-9594</a></p>
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-center">Our Roofing Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {["New Roofing","Shingles & Flat Roofs","Roof Repairs","Roof Inspection","Eaves Trough Cleaning","Eaves Trough Repairs","Cedar Roof","Plastic Roof"].map((service) => (
+            <Card key={service} className="shadow-md">
+              <CardContent>
+                <h3 className="text-xl font-semibold mb-2">{service}</h3>
+                <p className="text-gray-600">Professional and reliable {service.toLowerCase()} services.</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
+        <h2 className="text-2xl font-bold mb-4 text-center">Get a Free Estimate</h2>
+        <form action="https://formspree.io/f/mpwqbydn" method="POST" className="space-y-4">
+          <Input type="text" name="name" placeholder="Your Name" required className="w-full" />
+          <Input type="email" name="email" placeholder="Your Email" required className="w-full" />
+          <Input type="tel" name="phone" placeholder="Your Phone Number" required className="w-full" />
+          <Textarea name="message" placeholder="Your Message" required className="w-full" rows={4} />
+          <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+            Submit
+          </Button>
+        </form>
+      </section>
+
+      <footer className="mt-8 text-center">
+        <p>&copy; 2025 Amir Roofing. All Rights Reserved.</p>
+      </footer>
     </div>
+  );
+};
 
-    <!-- Business Hours Section -->
-    <div class="business-hours">
-        <h2>Business Hours</h2>
-        <p><strong>Monday to Saturday:</strong> 9 AM to 5 PM</p>
-    </div>
-
-    <!-- Call to Action Section -->
-    <div class="cta">
-        <p>We specialize in providing high-quality roofing services tailored to meet your needs. Contact us today for a free quote!</p>
-        <a href="mailto:info@amirroofing.com" class="cta-button">Get Your Free Quote</a>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2025 Amir Roofing. All Rights Reserved.</p>
-</footer>
-
-</body>
-</html>
+export default RoofingWebsite;
