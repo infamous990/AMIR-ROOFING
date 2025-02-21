@@ -1,0 +1,47 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+const RoofingWebsite = () => {
+  return (
+    <div className="p-8 bg-gray-100 min-h-screen">
+      <img src="/Black White Minimalist Modern Aesthetic Initials Font Logo.png" alt="Amir Roofing Logo" className="w-48 mb-8 mx-auto" />
+      <h1 className="text-4xl font-bold mb-6 text-center">Amir Roofing - Expert Roofer</h1>
+
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-center">Our Roofing Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {["New Roofing","Shingles & Flat Roofs","Roof Repairs","Roof Inspection","Eaves Trough Cleaning","Eaves Trough Repairs","Cedar Roof","Plastic Roof"].map((service) => (
+            <Card key={service} className="shadow-md">
+              <CardContent>
+                <h3 className="text-xl font-semibold mb-2">{service}</h3>
+                <p className="text-gray-600">Professional and reliable {service.toLowerCase()} services.</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto">
+        <h2 className="text-2xl font-bold mb-4 text-center">Get a Free Estimate</h2>
+        <form action="https://formspree.io/f/mpwqbydn" method="POST" className="space-y-4">
+          <Input type="text" name="name" placeholder="Your Name" required className="w-full" />
+          <Input type="email" name="email" placeholder="Your Email" required className="w-full" />
+          <Input type="tel" name="phone" placeholder="Your Phone Number" required className="w-full" />
+          <Textarea name="message" placeholder="Your Message" required className="w-full" rows={4} />
+          <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+            Submit
+          </Button>
+        </form>
+      </section>
+
+      <footer className="mt-8 text-center">
+        <p>&copy; 2025 Amir Roofing. All Rights Reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default RoofingWebsite;
